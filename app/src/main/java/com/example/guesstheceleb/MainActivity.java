@@ -20,9 +20,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ImageManager imageManager = new ImageManager(this.getAssets(), "celebs");
-        ImageView imageView = findViewById(R.id.image);
-        imageView.setImageBitmap(imageManager.get(0));
+//        ImageManager imageManager = new ImageManager(this.getAssets(), "celebs");
+//        ImageView imageView = findViewById(R.id.image);
+//        imageView.setImageBitmap(imageManager.get(0));
         
 //        AssetManager manager = getAssets();
 //        try {
