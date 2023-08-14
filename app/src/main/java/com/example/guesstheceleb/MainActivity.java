@@ -20,19 +20,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        AssetManager manager = getAssets();
-        try {
-            String[] names = manager.list("celebs");
-            Log.d("celebs",Arrays.toString(names));
-
-            ImageView imageView = findViewById(R.id.image);
-
-            InputStream stream = manager.open("celebs/" + names[0]);
-            Bitmap bitmap = BitmapFactory.decodeStream(stream);
-
-            imageView.setImageBitmap(bitmap);
-        } catch (IOException e) {
-            Log.d("TAG","Failed to get names");
-        }
+        ImageManager imageManager = new ImageManager(this.getAssets(), "celebs");
+        ImageView imageView = findViewById(R.id.image);
+        imageView.setImageBitmap(imageManager.get(0));
+        
+//        AssetManager manager = getAssets();
+//        try {
+//            String[] names = manager.list("celebs");
+//            Log.d("celebs",Arrays.toString(names));
+//
+//            ImageView imageView = findViewById(R.id.image);
+//
+//            InputStream stream = manager.open("celebs/" + names[0]);
+//            Bitmap bitmap = BitmapFactory.decodeStream(stream);
+//
+//            imageView.setImageBitmap(bitmap);
+//        } catch (IOException e) {
+//            Log.d("TAG","Failed to get names");
+//        }
     }
 }
