@@ -5,10 +5,29 @@
     android:layout_height="match_parent"
     tools:context=".StatusFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
 
+        <TextView
+            android:id="@+id/topTextView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/status_top_TextView"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/bottomTextView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/status_bottom_textView"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
 </FrameLayout>
