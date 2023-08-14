@@ -20,4 +20,7 @@
     <style name="headline" parent="TextAppearance.AppCompat.Display2">
         <item name="android:color">@color/purple_500</item>
     </style>
+    <style name="large" parent="TextAppearance.AppCompat.Large">
+        <item name="android:color">@color/purple_500</item>
+    </style>
 </resources>
