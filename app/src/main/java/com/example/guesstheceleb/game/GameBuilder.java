@@ -8,7 +8,17 @@ import java.util.List;
 import java.util.Random;
 
 public class GameBuilder {
-    public static Game create(CelebrityManager.Difficulty difficulty, CelebrityManager celebrityManager) {
+    private CelebrityManager celebrityManager;
+
+    public GameBuilder(CelebrityManager celebrityManager) {
+        this.celebrityManager = celebrityManager;
+    }
+
+    public Game create(CelebrityManager.Difficulty difficulty) {
+        return createGame(difficulty);
+    }
+
+    private Game createGame(CelebrityManager.Difficulty difficulty) {
         int numQuestions = 0;
         switch (difficulty) {
             case EASY:
@@ -48,4 +58,3 @@ public class GameBuilder {
         return new Game(questions);
     }
 }
-

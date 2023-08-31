@@ -31,4 +31,8 @@ public class Game {
     public String getScore() {
         return "Score: " + score + "/" + questions.length;
     }
+
+    public int count() {
+        return questions.length;
+    }
 }
