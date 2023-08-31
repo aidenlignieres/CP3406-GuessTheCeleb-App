@@ -6,11 +6,20 @@ import androidx.fragment.app.FragmentManager;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.guesstheceleb.game.CelebrityManager;
+import com.example.guesstheceleb.game.Difficulty;
+import com.example.guesstheceleb.game.Game;
+import com.example.guesstheceleb.game.GameBuilder;
+
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity implements StateListener{
     private GameFragment gameFragment;
     private StatusFragment statusFragment;
     private QuestionFragment questionFragment;
     private boolean isLargeScreen;
+    GameBuilder gameBuilder = new GameBuilder(null);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +35,16 @@ public class MainActivity extends AppCompatActivity implements StateListener{
 
     @Override
     public void onUpdate(State state) {
-        Log.i("MainActivity", "state:" + state);
+        Difficulty level = gameFragment.getLevel();
+        String text = String.format(Locale.getDefault(), "state: %s level: %s", state, level);
+        Log.i("MainActivity", text);
+
+        if (isLargeScreen) {
+            switch (state) {
+                case START_GAME:
+                    Game game = gameBuilder.create(level);
+                    questionFragment.setGame(game);
+            }
+        }
     }
 }

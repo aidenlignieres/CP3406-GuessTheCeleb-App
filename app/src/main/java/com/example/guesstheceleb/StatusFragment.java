@@ -13,39 +13,12 @@ import android.widget.TextView;
 
 public class StatusFragment extends Fragment {
 
-    private static final String PARAMETER1 = "param1";
-    private static final String PARAMETER2 = "param2";
-
-    private String mParam1;
-    private String mParam2;
-
     private TextView message;
     private TextView score;
-
-    public StatusFragment() {
-        // Required empty public constructor
-    }
-
-    public static StatusFragment newInstance(String param1, String param2) {
-        StatusFragment fragment = new StatusFragment();
-        Bundle args = new Bundle();
-        args.putString(PARAMETER1, param1);
-        args.putString(PARAMETER2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    private StateListener listener;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(PARAMETER1);
-            mParam2 = getArguments().getString(PARAMETER2);
-        }
-    }
-
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_status, container, false);
 
@@ -60,10 +33,8 @@ public class StatusFragment extends Fragment {
     }
 
     public void setScore(String text) {
-        message.setText(text);
+        score.setText(text);
     }
-
-    private StateListener listener;
 
     @Override
     public void onAttach(Context context) {

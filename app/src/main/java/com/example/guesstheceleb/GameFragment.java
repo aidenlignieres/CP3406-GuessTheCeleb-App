@@ -19,44 +19,15 @@ import java.util.Locale;
 
 public class GameFragment extends Fragment {
 
-    private static final String PARAMETER1 = "param1";
-    private static final String PARAMETER2 = "param2";
-
-    private String mParam1;
-    private String mParam2;
-
     private Difficulty level;
-
-    public GameFragment() {
-        // Required empty public constructor
-    }
-
-    public static GameFragment newInstance(String param1, String param2) {
-        GameFragment fragment = new GameFragment();
-        Bundle args = new Bundle();
-        args.putString(PARAMETER1, param1);
-        args.putString(PARAMETER2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(PARAMETER1);
-            mParam2 = getArguments().getString(PARAMETER2);
-        }
-    }
-
     private StateListener listener;
+    public Difficulty getLevel() {return level;}
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         listener = (StateListener) context;
     }
-
-    public Difficulty getLevel() {return level;}
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

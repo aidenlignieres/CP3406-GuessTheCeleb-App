@@ -9,43 +9,44 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.guesstheceleb.game.Game;
+import com.example.guesstheceleb.game.Question;
+
 public class QuestionFragment extends Fragment {
-
-    private static final String PARAMETER1 = "param1";
-    private static final String PARAMETER2 = "param2";
-
-    private String mParam1;
-    private String mParam2;
+    private StateListener listener;
+    private Game currentGame;
 
     public QuestionFragment() {
         // Required empty public constructor
     }
 
-    public static QuestionFragment newInstance(String param1, String param2) {
-        QuestionFragment fragment = new QuestionFragment();
-        Bundle args = new Bundle();
-        args.putString(PARAMETER1, param1);
-        args.putString(PARAMETER2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(PARAMETER1);
-            mParam2 = getArguments().getString(PARAMETER2);
-        }
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_question, container, false);
+        View view = inflater.inflate(R.layout.fragment_question, container, false);
+
+        // Setup your views, e.g., ImageView, GridView for answer options, etc.
+
+        return view;
     }
 
-    private StateListener listener;
+    public void setGame(Game game) {
+        currentGame = game;
+        showNextQuestion(); // Show the first question
+    }
+
+    public String getScore() {
+        return currentGame.getScore();
+    }
+
+    public void showNextQuestion() {
+        // Logic to display the next question's image and answer options
+        // You might need to use an adapter for your GridView
+        Question nextQuestion = currentGame.next();
+        if (nextQuestion != null) {
+            // Update your UI elements with the new question
+        }
+    }
 
     @Override
     public void onAttach(Context context) {
