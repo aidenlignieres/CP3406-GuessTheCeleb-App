@@ -12,12 +12,6 @@ public class CelebrityManager {
     private String[] imageNames;
     private AssetManager assetManager;
 
-    public enum Difficulty {
-        EASY,
-        MEDIUM,
-        HARD,
-        EXPERT
-    }
 
     public CelebrityManager(AssetManager assetManager, String assetPath) {
         this.assetPath = assetPath;

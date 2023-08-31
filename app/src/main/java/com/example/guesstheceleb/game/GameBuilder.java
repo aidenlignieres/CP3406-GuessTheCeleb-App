@@ -14,11 +14,11 @@ public class GameBuilder {
         this.celebrityManager = celebrityManager;
     }
 
-    public Game create(CelebrityManager.Difficulty difficulty) {
+    public Game create(Difficulty difficulty) {
         return createGame(difficulty);
     }
 
-    private Game createGame(CelebrityManager.Difficulty difficulty) {
+    private Game createGame(Difficulty difficulty) {
         int numQuestions = 0;
         switch (difficulty) {
             case EASY:

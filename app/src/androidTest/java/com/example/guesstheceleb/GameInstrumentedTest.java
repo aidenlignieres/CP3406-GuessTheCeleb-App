@@ -12,6 +12,7 @@ import org.junit.runner.RunWith;
 import static org.junit.Assert.*;
 
 import com.example.guesstheceleb.game.CelebrityManager;
+import com.example.guesstheceleb.game.Difficulty;
 import com.example.guesstheceleb.game.Game;
 import com.example.guesstheceleb.game.GameBuilder;
 import com.example.guesstheceleb.game.Question;
@@ -37,7 +38,7 @@ public class GameInstrumentedTest {
         CelebrityManager celebrityManager = new CelebrityManager(assetManager, "celebs");
 
         GameBuilder gameBuilder = new GameBuilder(celebrityManager);
-        Game game = gameBuilder.create(CelebrityManager.Difficulty.EASY);
+        Game game = gameBuilder.create(Difficulty.EASY);
 
         int correctlyAnswered = 0;
         loop: while (!game.isGameOver()) {

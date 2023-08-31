@@ -13,15 +13,15 @@
 
         <!-- TextView centered between top and spinner -->
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/current_level"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
-            android:text="@string/Level"
+            android:text="@string/level"
             android:textSize="48sp"
             android:textAlignment="center"
-            app:layout_constraintBottom_toTopOf="@+id/difficulty_levels"
+            app:layout_constraintBottom_toTopOf="@+id/difficulty"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -30,7 +30,7 @@
         <!-- Spinner centered within the layout -->
 
         <Spinner
-            android:id="@+id/difficulty_levels"
+            android:id="@+id/difficulty"
             android:layout_width="219dp"
             android:layout_height="80dp"
             app:layout_constraintBottom_toTopOf="@+id/button"
@@ -41,7 +41,7 @@
 
         <!-- Button centered between spinner and bottom -->
         <Button
-            android:id="@+id/button"
+            android:id="@+id/play"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/play"
