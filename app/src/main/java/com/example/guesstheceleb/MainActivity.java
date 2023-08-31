@@ -14,10 +14,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements StateListener{
     private GameFragment gameFragment;
     private StatusFragment statusFragment;
     private QuestionFragment questionFragment;
+    private boolean isLargeScreen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,24 +30,10 @@ public class MainActivity extends AppCompatActivity {
         statusFragment = (statusFragment) fragmentManager.findFragmentById(R.id.status);
         questionFragment = (questionFragment) fragmentManager.findFragmentById(R.id.question);
         isLargeScreen = statusFragment != null;
+    }
 
-//        ImageManager imageManager = new ImageManager(this.getAssets(), "celebs");
-//        ImageView imageView = findViewById(R.id.image);
-//        imageView.setImageBitmap(imageManager.get(0));
-        
-//        AssetManager manager = getAssets();
-//        try {
-//            String[] names = manager.list("celebs");
-//            Log.d("celebs",Arrays.toString(names));
-//
-//            ImageView imageView = findViewById(R.id.image);
-//
-//            InputStream stream = manager.open("celebs/" + names[0]);
-//            Bitmap bitmap = BitmapFactory.decodeStream(stream);
-//
-//            imageView.setImageBitmap(bitmap);
-//        } catch (IOException e) {
-//            Log.d("TAG","Failed to get names");
-//        }
+    @Override
+    public void onUpdate(State state) {
+        Log.i("MainActivity", "state:" + state);
     }
 }
