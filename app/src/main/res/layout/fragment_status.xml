@@ -13,7 +13,7 @@
         tools:ignore="UselessParent">
 
         <TextView
-            android:id="@+id/topTextView"
+            android:id="@+id/message"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -22,7 +22,7 @@
             android:textSize="20sp"/>
 
         <TextView
-            android:id="@+id/bottomTextView"
+            android:id="@+id/score"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
