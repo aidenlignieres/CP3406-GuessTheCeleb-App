@@ -1,6 +1,7 @@
 package com.example.guesstheceleb;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
@@ -14,11 +15,20 @@ import java.io.InputStream;
 import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
+    private GameFragment gameFragment;
+    private StatusFragment statusFragment;
+    private QuestionFragment questionFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        gameFragment = (gameFragment) fragmentManager.findFragmentById(R.id.game);
+        statusFragment = (statusFragment) fragmentManager.findFragmentById(R.id.status);
+        questionFragment = (questionFragment) fragmentManager.findFragmentById(R.id.question);
+        isLargeScreen = statusFragment != null;
 
 //        ImageManager imageManager = new ImageManager(this.getAssets(), "celebs");
 //        ImageView imageView = findViewById(R.id.image);
