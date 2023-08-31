@@ -1,5 +1,6 @@
 package com.example.guesstheceleb;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -42,5 +43,13 @@ public class StatusFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_status, container, false);
+    }
+
+    private StateListener listener;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        listener = (StateListener) context;
     }
 }
