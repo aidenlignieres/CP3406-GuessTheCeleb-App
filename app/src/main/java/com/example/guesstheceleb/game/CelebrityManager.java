@@ -12,6 +12,13 @@ public class CelebrityManager {
     private String[] imageNames;
     private AssetManager assetManager;
 
+    public enum Difficulty {
+        EASY,
+        MEDIUM,
+        HARD,
+        EXPERT
+    }
+
     public CelebrityManager(AssetManager assetManager, String assetPath) {
         this.assetPath = assetPath;
         this.assetManager = assetManager;
@@ -60,5 +67,29 @@ public class CelebrityManager {
             return imageNames.length;
         }
         return 0;
+    }
+
+    public String[] getAllNames() {
+        return imageNames; // Assuming imageNames are the celebrity names without extensions
+    }
+
+    public Bitmap getByName(String name) {
+        String imagePath = assetPath + "/" + name + ".jpg"; // Assuming images are named as "name.jpg"
+        InputStream stream = null;
+        try {
+            stream = assetManager.open(imagePath);
+            return BitmapFactory.decodeStream(stream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (stream != null) {
+                try {
+                    stream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return null;
     }
 }
