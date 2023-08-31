@@ -26,9 +26,9 @@ public class MainActivity extends AppCompatActivity implements StateListener{
         setContentView(R.layout.activity_main);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
-        gameFragment = (gameFragment) fragmentManager.findFragmentById(R.id.game);
-        statusFragment = (statusFragment) fragmentManager.findFragmentById(R.id.status);
-        questionFragment = (questionFragment) fragmentManager.findFragmentById(R.id.question);
+        gameFragment = (GameFragment) fragmentManager.findFragmentById(R.id.game);
+        statusFragment = (StatusFragment) fragmentManager.findFragmentById(R.id.status);
+        questionFragment = (QuestionFragment) fragmentManager.findFragmentById(R.id.question);
         isLargeScreen = statusFragment != null;
     }
 
