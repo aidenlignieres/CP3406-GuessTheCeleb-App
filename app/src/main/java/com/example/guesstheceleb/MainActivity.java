@@ -44,6 +44,16 @@ public class MainActivity extends AppCompatActivity implements StateListener{
                 case START_GAME:
                     Game game = gameBuilder.create(level);
                     questionFragment.setGame(game);
+                    break;
+
+                case CONTINUE_GAME:
+                    statusFragment.setScore(questionFragment.getScore());
+                    break;
+
+                case GAME_OVER:
+                    statusFragment.setScore(questionFragment.getScore());
+                    statusFragment.setMessage("GameOver!");
+                    break;
             }
         }
     }
